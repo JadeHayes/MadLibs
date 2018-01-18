@@ -12,8 +12,15 @@
         horse named {{person}}ation, which feasted upon {{noun}}s all day long.<br>
         {{person}} set off on a long journey to conquer the shadowlands but they
         were way too {{adjective}}, so {{person}} and {{person}}ation went home
-        and learned Python. 
-    <br>And that is how Abraham Lincoln became the 14th president.<br>
+        and learned Python with all the animals in {{person}}'s farm.
+        <br>
+        Did we mention the farm? <br>
+        There was a farm. It has: <br>
+
+        {% for pet in pets %}
+            a {{pet}}, <br>
+        {% endfor %}and that was pretty much it.<br>
+        The {{fave_pet}} was {{person}}'s favorite.
     </p>
 </body>
 </html>

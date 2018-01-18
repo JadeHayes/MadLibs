@@ -25,6 +25,14 @@ action of /madlib. -->
                 <input type="radio" name="adjective" value="{{adj}}"> {{adj}}<br>
             {% endfor %}
             </div>  
+    <div> Choose some pets: <br>
+            {% for pet in pets %}
+                <input type="checkbox" name="animal" value="{{pet}}">{{pet}}<br>
+            {% endfor %}
+
+    </div>
+
+
     <input type="submit" value="Make a story!">
 </form>
 </body>

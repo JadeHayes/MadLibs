@@ -56,7 +56,10 @@ def show_madlib_form():
     nouns_list = ["apple", "hat", "bear", "toenail", "windmill", "juicebox"]
     adjectives_list = ["fluffy", "slimey", "lit", "smelly", "beautiful",
                        "weathly", "basic", "extra", "bitchin'"]
-    return render_template("game.html", nouns=nouns_list, adjectives=adjectives_list)
+    pet_list = ["dragon", "direwolf", "sir pounce", "ramsay's hounds",
+                "viserion", "the boar that killed King Robert"]
+    return render_template("game.html", nouns=nouns_list,
+                           adjectives=adjectives_list, pets=pet_list)
 
 
 @app.route('/madlib')
@@ -67,9 +70,16 @@ def show_madlib():
     noun = request.args.get("noun")
     color = request.args.get("color")
     adjective = request.args.get("adjective")
-
+    pets = request.args.getlist("animal")
+    if len(pets) > 1:
+    # if request.args.getlist("animal"):
+        fave_pet = request.args.getlist("animal")[1]
+    else:
+        fave_pet = request.args.get("animal")
+    print pets
     return render_template("madlib.html", person=person, noun=noun,
-                           color=color, adjective=adjective)
+                           color=color, adjective=adjective, pets=pets,
+                           fave_pet=fave_pet)
 
 
 if __name__ == '__main__':
