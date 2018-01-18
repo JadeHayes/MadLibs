@@ -1,0 +1,31 @@
+<!-- If they said yes, render a different template, game.html. 
+The template game.html should have a simple form that asks for a person, 
+a color, a noun, and an adjective. How you choose to implement those inputs 
+is up to you, but you should feel free to mix and match. (Hint: it might be 
+fun to try one as a drop-down menu of choices). This new form should have the 
+action of /madlib. -->
+<!doctype html>
+<html>
+<head>
+    <title>Let's Play A Game</title>
+    <link rel="stylesheet"
+          href="/static/madlibs.css">
+</head>
+<body>
+<form action="/madlib">
+    <h1> Yo, fill dis out! </h1> <br>
+    <div> Name of a person: <input type="text" name="person"> <br> </div>
+    <div> Noun: <select name="noun"> 
+           {% for noun in nouns %}
+                <option value="{{noun}}"> {{noun}} </option>
+           {% endfor %} </select> </div>
+    <div> Color: <input type="text" name="color"> <br> </div> 
+    <div> Adjective: <br>
+            {% for adj in adjectives %}
+                <input type="radio" name="adjective" value="{{adj}}"> {{adj}}<br>
+            {% endfor %}
+            </div>  
+    <input type="submit"> 
+</form>
+</body>
+</html>
